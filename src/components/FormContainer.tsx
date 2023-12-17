@@ -11,9 +11,10 @@ export default function FormContainer({ data, onAmountChange }: { data: any, onA
 
     console.log(amount, speed, beerType, maxSpeed)
     const handleStartProduction = async () => {
+        onAmountChange(amount);
         // Here, you can make a fetch request to send messages and multiple commands to the OPC server
         // We say + 50 on the counters to ensure the machine never get into a deadlock
-     /*   const barleyCounter = 50+parseFloat(String(data['Inventory.Barley']))
+       /* const barleyCounter = 50+parseFloat(String(data['Inventory.Barley']))
         const hopsCounter = 50+parseFloat(String(data['Inventory.Hops']))
         const maltCounter = 50+parseFloat(String(data['Inventory.Malt']))
         const wheatCounter = 50+parseFloat(String(data['Inventory.Wheat']))
@@ -92,7 +93,7 @@ export default function FormContainer({ data, onAmountChange }: { data: any, onA
         }
 
         try {
-            const response = await fetch('/api/start_production', {
+            const response = await fetch('http://localhost:8080/api/start_production', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -114,15 +115,13 @@ export default function FormContainer({ data, onAmountChange }: { data: any, onA
         } catch (error) {
             console.error('Error:', error);
         }
-
-        onAmountChange(amount);
     };
 
 
     const handleStopProduction = async () => {
         // Here, you can make a fetch request to send messages and multiple commands to the OPC server
         try {
-            const response = await fetch('/api/stop_production', {
+            const response = await fetch('http://localhost:8080/api/stop_production', {
                 method: 'POST',
             });
 
@@ -214,7 +213,7 @@ export default function FormContainer({ data, onAmountChange }: { data: any, onA
                                                                               data['Cube.Status.StateCurrent'] != 17 &&
                                                                               data['Cube.Status.StateCurrent'] != null}>Start</Button>
                     <Button className={styles.formButton} type="submit" variant={"contained"}
-                            onClick={() => handleStopProduction()} disabled={data['Cube.Status.StateCurrent'] != 6}>Stop</Button>
+                            onClick={() => handleStopProduction()}>Stop</Button>
                 </div>
             </div>
         </div>

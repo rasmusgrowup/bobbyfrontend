@@ -21,7 +21,7 @@ function History() {
 
     React.useEffect(() => {
         // Fetch production data from your API or server
-        axios.get<ProductionHistory[]>('/api/productions/all')
+        axios.get<ProductionHistory[]>('http://localhost:8080/api/productions/all')
             .then(response => setProductionData(response.data))
             .catch(error => console.error('Error fetching production data:', error));
     }, []);
