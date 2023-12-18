@@ -39,8 +39,8 @@ function PilsnerGraph(){
             <LineChart
                 xAxis= {graphData.xAxis}
                 series={graphData.series}
-                width={700}
-                height={280}
+                width={725}
+                height={300}
             />
         </div>
     )
@@ -88,8 +88,8 @@ function IPAGraph(){
             <LineChart
                 xAxis= {graphData.xAxis}
                 series={graphData.series}
-                width={700}
-                height={280}
+                width={725}
+                height={300}
             />
         </div>
     )
@@ -137,8 +137,8 @@ function AleGraph(){
             <LineChart
                 xAxis= {graphData.xAxis}
                 series={graphData.series}
-                width={700}
-                height={280}
+                width={725}
+                height={300}
             />
         </div>
     )

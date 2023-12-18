@@ -74,17 +74,14 @@ export default function SensorWarning({data}: {data: any}) {
     const handleCloseHumidityWarning = () => setShowHumidityWarning(false);
 
     const handleStopProduction = async () => {
-        // Here, you can make a fetch request to send messages and multiple commands to the OPC server
         try {
             const response = await fetch('/api/stop_production', {
                 method: 'POST',
             });
 
             if (response.ok) {
-                // Handle success, if needed
                 console.log()
             } else {
-                // Handle errors
                 console.error();
             }
         } catch (error) {
