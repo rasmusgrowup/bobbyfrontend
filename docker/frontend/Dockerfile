@@ -4,7 +4,7 @@ RUN mkdir /app
 WORKDIR /app
 COPY package.json /app
 COPY next.config.js /app
-COPY next-env.d.ts /app
+#COPY next-env.d.ts /app
 
 COPY src/ /app/src
 COPY public/ /app/public

@@ -20,7 +20,7 @@ function Home() {
     const [data, setData] = useState<MyData>({});
     const [dataStatic, setDataStatic] = useState<MyData>({});
     const [openRefill, setRefill] = useState(false);
-    const [openMaintenance, setMaintenance] = useState(true);
+    const [openMaintenance, setMaintenance] = useState(false);
     const [amountFromChild, setAmountFromChild] = useState(0);
 
     const handleAmountChange = (amount: number) => {
@@ -112,9 +112,9 @@ function Home() {
                     <MaintenanceBar data={data}/>
                     <BasicTable data={data} amount={amountFromChild}/>
                 </div>
+                <SensorWarning data={data}/>
                 {openRefill && <RefillModal data={data} closeRefill={() => setRefill(false)}/>}
                 {openMaintenance && <MaintenanceModal data={data} closeMaintenance={() => setMaintenance(false)}/>}
-                <SensorWarning data={data}/>
             </main>
         </>
     )

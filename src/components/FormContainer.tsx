@@ -196,7 +196,7 @@ export default function FormContainer({ data, onAmountChange }: { data: any, onA
                         aria-label="Amount of beer"
                         value={amount}
                         onChange={(event, val: any) => setAmount(val)}
-                        step={100}
+                        step={1}
                     />
                     <label className={styles.speedLabel}>Choose production speed: {speed}</label>
                     <Slider
